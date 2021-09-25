@@ -14,7 +14,7 @@
     
     'author': 'Odoo',
     
-    'website': 'htpps://www.odoo.com'
+    'website': 'htpps://www.odoo.com',
     
     'category': 'Training',
     
