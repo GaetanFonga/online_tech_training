@@ -18,9 +18,9 @@ class Course(models.Model):
     
     active = fields.Boolean(string='Active', default=True)
     
-    base_price = fields.Boolean(string='Base Price', default=True)
+    base_price = fields.Float(string='Base Price', default=0.00)
     
-    additional_fee = fields.Float(string='Additional fee', default=10.0)
+    additional_fee = fields.Float(string='Additional fee', default=10.00)
     
     total_price = fields.Float(string='Total Price', readonly=True)
     
@@ -29,10 +29,10 @@ class Course(models.Model):
         if self.base_price < 0.00:
             raise UserError('Base Price cannot be set as Negative.')
             
-        self.total_price = self.base_price + self.additionnal_fee
+        self.total_price = self.base_price + self.additional_fee
     
     @api.constrains('additional_fee')
     def _chech_additional_fee(self):
         for record in self:
             if record.additional_fee < 10.00:
-                raise ValidationError('Additional fee cannot be less than 10.00: %s' % record.additional_fee)
+                raise ValidationError('Additional Fees cannot be less than 10: %sValue entered: ' % record.additional_fee)
