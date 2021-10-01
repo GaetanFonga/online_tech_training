@@ -50,7 +50,7 @@
                             <i t-field="session.write_date" t-field-options='{"format": "long"}'/>
                         </p>
                         <p>Course:
-                            <t t-esc="session.course.id.name"/>
+                            <t t-esc="session.course_id.name"/>
                         </p>
                         <h3>Students:</h3>
                         <ul>
